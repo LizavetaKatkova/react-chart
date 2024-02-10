@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Chart } from "react-google-charts";
+
+const data = [
+  ["Жанр", "Кол-во показанных фильмов в этом жанре"],
+  ["Драма", 158],
+  ["Комедия", 210],
+  ["Экшен", 342],
+  ["Ужасы", 64],
+  ["Для детей", 139],
+];
+
+const options = {
+  title: "Репертуар кинотеатров за 2023 год",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Chart
+      chartType="PieChart"
+      data={data}
+      options={options}
+      width={"100%"}
+      height={"400px"}
+    />
   );
 }
 
